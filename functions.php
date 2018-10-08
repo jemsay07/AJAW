@@ -120,6 +120,13 @@ add_action( 'widgets_init', 'ajaw_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ajaw_scripts() {
+
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.css', 'v4.1.1', true);
+
+	wp_enqueue_style( 'fontawesome-css', get_template_directory_uri() . '/assets/css/fontawesome.css', 'v5.0.9', true);
+
+	wp_enqueue_style( 'ajaw-style', get_stylesheet_uri() );
+
 	wp_enqueue_style( 'ajaw-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'ajaw-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -150,7 +157,12 @@ require get_template_directory() . '/inc/template-functions.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer/customizer.php';
+
+/**
+ * Customizer Sanitizer.
+ */
+require get_template_directory() . '/inc/customizer/sanitizer.php';
 
 /**
  * Load Jetpack compatibility file.
