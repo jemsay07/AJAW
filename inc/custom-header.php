@@ -16,7 +16,7 @@
  *
  * @uses ajaw_header_style()
  */
-function ajaw_custom_header_setup() {
+/*function ajaw_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'ajaw_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
@@ -26,7 +26,7 @@ function ajaw_custom_header_setup() {
 		'wp-head-callback'       => 'ajaw_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'ajaw_custom_header_setup' );
+add_action( 'after_setup_theme', 'ajaw_custom_header_setup' );*/
 
 if ( ! function_exists( 'ajaw_header_style' ) ) :
 	/**
@@ -71,8 +71,8 @@ if ( ! function_exists( 'ajaw_header_style' ) ) :
 	}
 endif;
 
-function ajaw_custom_header(){
-	
+/*function ajaw_custom_header(){
+
 	the_custom_logo();
 	if ( is_front_page() && is_home() ) :
 		?>
@@ -86,7 +86,45 @@ function ajaw_custom_header(){
 	$ajaw_description = get_bloginfo( 'description', 'display' );
 	if ( $ajaw_description || is_customize_preview() ) :
 		?>
-		<p class="site-description"><?php echo $ajaw_description; /* WPCS: xss ok. */ ?></p>
+		<p class="site-description"><?php echo $ajaw_description;  //WPCS: xss ok.  ?></p>
 	<?php endif;
 
+}
+*/
+function ajaw_custom_header(){
+	//the_custom_logo();
+
+	$site_branding_output = '';
+	$title_option = get_theme_mod( 'site_title_option', 'text-only' );
+	$logo_id = get_theme_mod( 'site_logo' );
+	$logo =  wp_get_attachment_url( $logo_id );
+
+	//check weather the page is front
+	if ( is_front_page() || is_home() ) {
+		$before_title = '<h1 class="site-title" itemprop="headline">';
+		$after_title = '</h1>';
+		$before_desc = '<h2 class="site-description" itemprop="description">';
+		$after_desc = '</h2>';
+	}else{
+		$before_title = '<h2 class="site-title" itemprop="headline">';
+		$after_title = '</h2>';
+		$before_desc = '<h3 class="site-description" itemprop="description">';
+		$after_desc = '</h3>';
+	}
+
+	if ( $title_option == 'logo-only' && ! empty( $logo ) || $title_option == 'logo-only' && $logo != 0 ) :
+		$site_branding_output .= $before_title . '<a class="navbar-brand " href="' . esc_url( home_url( '/' ) ) . '" rel="home" itemprop="url"><img src="' . esc_url( $logo ) . '" alt="' . get_bloginfo( 'name' ) . '" itemprop="image"></a><span class="sr-only">' . get_bloginfo('name') . '</span>' . $after_title;
+	endif;
+	if ( $title_option == 'text-logo' && ! empty( $logo ) || $title_option == 'text-logo' && $logo != 0 ) :
+		$site_branding_output .= '<div class="site-logo">';
+			$site_branding_output .= '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home" itemprop="url"><img src="' . esc_url( $logo ) . '" alt="' . get_bloginfo( 'name' ) .'" itemprop="image"></a>';
+			$site_branding_output .= $before_title . '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home" itemprop="url">' . get_bloginfo( 'name' ) . '</a>' . $after_desc;
+			$site_branding_output .= $before_desc . get_bloginfo( 'description' ) . $after_desc;
+		$site_branding_output .= '</div>';
+	endif;
+	if ( $title_option == 'text-only' ):
+		$site_branding_output .= $before_title . '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home" itemprop="url">' . get_bloginfo( 'name' ) . '</a>' . $after_desc;
+		$site_branding_output .= $before_desc . get_bloginfo( 'description' ) . $after_desc;
+	endif;
+	return $site_branding_output;
 }

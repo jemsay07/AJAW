@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-class edsbootstrap_bootstrap_navwalker extends Walker_Nav_Menu {
+class ajaw_wp_navwalker extends Walker_Nav_Menu {
 
 	/**
 	 * @see Walker::start_lvl()
@@ -83,8 +83,8 @@ class edsbootstrap_bootstrap_navwalker extends Walker_Nav_Menu {
 			// If item has_children add atts to a.
 			if ( $args->has_children && $depth === 0 ) {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
-				//$atts['data-toggle']	= 'dropdown';
-				$atts['class']			= 'dropdown-toggle';
+				$atts['data-toggle']	= 'dropdown';
+				$atts['class']			= 'nav-link dropdown-toggle';
 				//$atts['aria-haspopup']	= 'true';
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
@@ -110,9 +110,9 @@ class edsbootstrap_bootstrap_navwalker extends Walker_Nav_Menu {
 			 * property is NOT null we apply it as the class name for the glyphicon.
 			 */
 			if ( ! empty( $item->attr_title ) )
-				$item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
+				$item_output .= '<a'. $attributes .' class="nav-link"><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
 			else
-				$item_output .= '<a'. $attributes .'>';
+				$item_output .= '<a'. $attributes .' class="nav-link" itemprop="url">';
 
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 			$item_output .= '</a>';
@@ -194,7 +194,7 @@ class edsbootstrap_bootstrap_navwalker extends Walker_Nav_Menu {
 				$fb_output .= ' class="' . $menu_class . '"';
 
 			$fb_output .= '>';
-			$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
+			$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '" class="nav-link">Add a menu</a></li>';
 			$fb_output .= '</ul>';
 
 			if ( $container )

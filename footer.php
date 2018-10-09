@@ -11,21 +11,31 @@
 
 ?>
 
+		</div><!-- .row -->
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ajaw' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'ajaw' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'ajaw' ), 'ajaw', '<a href="https://github.com/jemsay07/AJAW">Jemsayre</a>' );
-				?>
+		<div class="site-socket py-3">
+			<div class="container">
+				<div class="row">
+					widget here widget here widget here widget here widget here<br/>widget here widget here widget here widget here widget here<br/>widget here widget here widget here widget here widget here<br/>widget here widget here widget here widget here widget here<br/>widget here widget here widget here widget here widget here<br/>
+				</div>
+			</div>
+		</div>
+		<div class="site-info py-3">
+			<div class="container">
+				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'ajaw' ) ); ?>">
+					<?php
+					/* translators: %s: CMS name, i.e. WordPress. */
+					printf( esc_html__( 'Proudly powered by %s', 'ajaw' ), 'WordPress' );
+					?>
+				</a>
+				<span class="sep"> | </span>
+					<?php
+					/* translators: 1: Theme name, 2: Theme author. */
+					printf( esc_html__( 'Theme: %1$s by %2$s.', 'ajaw' ), 'ajaw', '<a href="https://github.com/jemsay07/AJAW">Jemsayre</a>' );
+					?>
+			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

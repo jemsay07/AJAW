@@ -11,9 +11,9 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function ajaw_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport 				= 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport 			= 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport 		= 'postMessage';
 	$wp_customize->remove_control('display_header_text');	// Remove the default site title & tag.
 	$wp_customize->get_section( 'colors' )->title =  'Default Colors';
 	$wp_customize->get_section( 'colors' )->panel =  'ajaw_style_options';
@@ -52,17 +52,23 @@ function ajaw_customize_register( $wp_customize ) {
 		 *----------------------------*/
 		$wp_customize->add_setting( 'site_logo',
 			array(
-				'sanitize_callback' => 'ajaw_sanitize_image'
+				'type'			=> 'theme_mod',
+				'transport'		=> 'refresh',
+				'sanitize_callback' => 'absint'
 			)
 		);
 
 			$wp_customize->add_control(
-				new Ajaw_Customize_Radio_Image( $wp_customize, 'site_logo',
+				new WP_Customize_Cropped_Image_Control( $wp_customize, 'site_logo',
 					array(
 						'label'		=> __( 'Site Logo', 'ajaw' ),
 						'section'	=> 'title_tagline',
 						'setting'	=> 'site_logo',
-						'description' => __( 'Upload a logo for your website. Recommended height for your logo is 135px.', 'ajaw' )
+						'description' => __( 'Upload a logo for your website. Recommended height for your logo is 135px.', 'ajaw' ),
+						'flex_width'  => false, // Allow any width, making the specified value recommended. False by default.
+						'flex_height' => false,
+						'width'       => 135,
+						'height'      => 135,				
 					)
 				)
 			);
@@ -99,7 +105,7 @@ function ajaw_customize_register( $wp_customize ) {
 	$wp_customize->add_panel(
 		'ajaw_theme_options',
 		array(
-			'priority'		=> 20,
+			'priority'		=> 21,
 			'capability' 	=> 'edit_theme_options',
 			'theme_support'	=> '',
 			'title'			=> __( 'Theme Settings',  'ajaw' ),
@@ -113,7 +119,7 @@ function ajaw_customize_register( $wp_customize ) {
 			'ajaw_blog_options',
 			array(
 				'priority'	=> 4,
-				'title'		=> esc_html__( 'Theme Default Settings', 'ajaw' ),
+				'title'		=> esc_html__( 'Theme Layout Settings', 'ajaw' ),
 				'panel'		=> 'ajaw_theme_options'
 			)
 		);
