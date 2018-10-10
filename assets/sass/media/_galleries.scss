@@ -15,7 +15,16 @@
 		}
 	}
 }
+.gallery-icon{
+	margin-bottom: 0.5em;
+	img{
+		margin:0 auto;
+	}
+}
 
 .gallery-caption {
+    @include font-size(0.75);
+    font-style: italic;
 	display: block;
 }
+

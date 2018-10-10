@@ -1,3 +1,42 @@
 @import "buttons";
 
 @import "fields";
+
+.search-form{
+	display: block;
+	position: relative;
+	width:100%;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	label{
+		display:block;
+	}
+	.search-field{
+		display:block;
+		margin:0;
+		padding:10px 80px 10px 10px;
+		width:100%;
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-appearance: none;
+	}
+	.search-submit{
+		background-color:$color__def_ff4;
+		color: $color__white;
+		@include font-size(0.75);
+		font-weight: bold;
+		height:37px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: none;
+		padding: 10px 12px;
+		cursor: pointer;
+    	text-transform: uppercase;
+    	&:hover{
+    		background-color: $color__def_ff4;
+    	}
+	}
+}

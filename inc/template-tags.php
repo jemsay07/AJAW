@@ -62,14 +62,22 @@ if ( ! function_exists( 'ajaw_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'ajaw' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'ajaw' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				echo '<div class="ajaw-cat under">';
+					_e( 'Posted in', 'ajaw' );
+				echo '</div>';
+				echo '<div class="ajaw-cat-lists">' . $categories_list . '</div>';
+				echo '<div class="clearfix"></div>';
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'ajaw' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'ajaw' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+					echo '<div class="ajaw-tag under">';
+						_e( 'Tagged','ajaw' );
+					echo '</div>';
+					echo '<div class="ajaw-tag-lists">' . $tags_list . '</div>';
+					echo '<div class="clearfix"></div>';
 			}
 		}
 

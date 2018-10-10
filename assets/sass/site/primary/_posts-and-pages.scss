@@ -1,3 +1,4 @@
+//Post & Page
 .sticky {
 	display: block;
 }
@@ -9,14 +10,123 @@
 .updated:not(.published) {
 	display: none;
 }
+.byline,.posted-on,.comments-link,.edit-link{
+	@include font-size(0.825);
+	&:before{
+		display: inline-block; 
+		@include font-size(0.825);
+		font-family: FontAwesome; 
+		font-weight: normal; 
+	}
+}
+.byline:before {
+  content: "\f007";
+  margin: 0 10px 0 15px;
+}
+.posted-on:before {
+  content: "\f133";
+  margin: 0 10px 0 0;
+}
+.comments-link{
+	display: inline-block;
+	margin-top: 0.5em;
+	margin-right: 15px;
+	&:before {
+	  content: "\f0e6";
+	  margin: 0 10px 0 5px;
+	}
+}
+.edit-link{
+	display: inline-block;
+	margin-top: 0.5em;
+	&:before {
+	  content: "\f044";
+	  margin: 0 10px 0 0px;
+	}
+}
+.single-post{
+	.edit-link:before{
+		margin-left: 5px;
+	}
+}
 
 .page-content,
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
+	text-align: justify;
 }
 
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+.page-entry-title,
+.archive-page-title,
+.search-page-title{
+	@include font-size(1);
+	font-weight: 500;
+	word-wrap: break-word;
+}
+.page-entry-footer{
+  margin: 30px 0;
+  padding: 10px 0;
+}
+.page-header {
+  margin: 0 0 40px 0;
+  border-bottom: none;
+  padding: 0;
+}
+.page-title {
+	font-weight: normal;
+	margin: 0;
+}
+.taxonomy-description {
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+/* Normal Post */
+
+.single-entry-title{
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0 0 2px 0;
+  @include font-size(2);
+  line-height: 1.3;
+  font-weight: bold;
+  word-wrap: break-word;
+}
+.single-entry-footer {
+  padding: 20px 0;
+  margin-bottom: 15px;
+}	
+
+.ajaw-cat,.ajaw-tag{
+	&.under{
+		color: $color__def_004;
+		@include font-size( 0.625 );
+		font-weight: 800; 
+		margin-right: 3px;
+		text-transform: uppercase;
+	}
+}
+.ajaw-cat,.ajaw-cat-lists,
+.ajaw-tag,.ajaw-tag-lists{
+	display:inline-block;
+	a{
+		background-color: $color__def_08c;
+		border-radius: 1px;
+		color:$color__white;
+		@include font-size( 0.625 );
+		line-height: 27px;
+		padding: 2px 6px;
+		text-decoration: none;
+		text-transform: uppercase;
+		&:hover,
+		&:focus,
+		&:visited{
+			background-color: $color__def_ffa;
+			color: $color__white;
+		}
+	}
 }

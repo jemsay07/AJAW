@@ -1,4 +1,26 @@
-table {
+table, th, td {
+	border: 1px solid $color__e6;
 	margin: 0 0 1.5em;
 	width: 100%;
+}
+table {
+	border-collapse: collapse;
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+th {
+  font-size: 14px;
+  font-size: 1.4rem;
+  background: $color__ea;
+  font-weight: bold;
+  padding: 8px 15px;
+}
+td {
+  padding: 5px 15px;
+}
+.site-footer table, .site-footer th, .site-footer td {
+  border: 1px solid $color__b5;
+}
+.site-footer th {
+  background: $color__22;
 }
