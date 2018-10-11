@@ -42,6 +42,8 @@ if ( ! function_exists( 'ajaw_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		add_image_size( 'default', 724, 410, true );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'ajaw' ),

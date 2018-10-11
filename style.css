@@ -816,49 +816,77 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%;
-}
-.main-navigation ul {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-.main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 100%;
-  left: -999em;
-  z-index: 99999;
-}
-.main-navigation ul ul ul {
-  left: -999em;
-  top: 0;
-}
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-  left: 100%;
-}
-.main-navigation ul ul a {
-  width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
-}
-.main-navigation li {
-  float: left;
-  position: relative;
-}
-.main-navigation a {
-  display: block;
-  text-decoration: none;
-}
+/* .main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
 
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 100%;
+			left: -999em;
+			z-index: 99999;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 200px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		float: left;
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}
+} */
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
@@ -886,6 +914,7 @@ a:hover, a:active {
   width: 50%;
 }
 .comment-navigation .nav-previous:before, .posts-navigation .nav-previous:before, .post-navigation .nav-previous:before {
+  color: #FF4708;
   content: "\f053";
   display: inline-block;
   font-family: FontAwesome;
@@ -903,6 +932,7 @@ a:hover, a:active {
   width: 50%;
 }
 .comment-navigation .nav-next:after, .posts-navigation .nav-next:after, .post-navigation .nav-next:after {
+  color: #FF4708;
   content: "\f054";
   display: inline-block;
   font-family: FontAwesome;
@@ -1106,7 +1136,8 @@ a:hover, a:active {
   font-size: 1rem;
 }
 .widget .widget-title-container {
-  border-bottom: 1px solid #F2F2F2;
+  border-bottom: 1px solid #FF4708;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .widget .widget-title-container .widget-title {
@@ -1129,6 +1160,11 @@ a:hover, a:active {
 ## Default Theme
 --------------------------------------------------------------*/
 /**Header Top*/
+.site-header {
+  margin-bottom: 35px;
+  position: relative;
+  width: 100%;
+}
 .site-header #topHeader {
   background: #F2F2F2;
   font-size: 13px;
@@ -1216,7 +1252,10 @@ a:hover, a:active {
 }
 .site-footer .site-info {
   background: #00212c;
-  color: #fff;
+  color: #FFF;
+}
+.site-footer .site-info a {
+  color: #FFA688;
 }
 
 /*--------------------------------------------------------------
@@ -1312,8 +1351,14 @@ a:hover, a:active {
 }
 
 .page-title {
-  font-weight: normal;
-  margin: 0;
+  color: #004056;
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.3;
+}
+.page-title .vcard {
+  color: #FFA688;
 }
 
 .taxonomy-description {
@@ -1321,7 +1366,38 @@ a:hover, a:active {
   margin-bottom: 40px;
 }
 
+.archive-description {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
 /* Normal Post */
+.ajaw-g2 .ajaw-post {
+  display: block;
+  float: none;
+  width: 100%;
+  margin-right: 0%;
+  margin-left: 0;
+  position: relative;
+  vertical-align: top;
+}
+.ajaw-g2 .ajaw-post:nth-of-type(2n) {
+  margin-right: 0;
+}
+
+.ajaw-post {
+  margin-bottom: 3em;
+}
+.ajaw-post .entry-title {
+  color: #FF4708;
+  font-size: 21.008px;
+  font-size: 1.313rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0 0 0.286em;
+}
+
 .single-entry-title {
   font-family: "Roboto Condensed", sans-serif;
   margin: 0 0 2px 0;
@@ -1357,8 +1433,9 @@ a:hover, a:active {
   color: #FFF;
   font-size: 10px;
   font-size: 0.625rem;
-  line-height: 27px;
-  padding: 2px 6px;
+  line-height: 30px;
+  margin-right: 2px;
+  padding: 7px 6px;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -1368,6 +1445,10 @@ a:hover, a:active {
 .ajaw-tag a:visited, .ajaw-tag-lists a:hover, .ajaw-tag-lists a:focus, .ajaw-tag-lists a:visited {
   background-color: #FFA688;
   color: #FFF;
+}
+
+.entry-meta {
+  margin: 0 0 0.75em 0;
 }
 
 /*--------------------------------------------------------------
@@ -1493,6 +1574,18 @@ object {
   font-size: 0.75rem;
   font-style: italic;
   display: block;
+}
+
+/*--------------------------------------------------------------
+## Post & Pages Media
+--------------------------------------------------------------*/
+@media only screen and (min-width: 960px) {
+  .ajaw-g2 .ajaw-post {
+    display: inline-block;
+    float: left;
+    width: 47.3469387755102%;
+    margin-right: 5.306122448979592%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,8 @@
 /**Header Top*/
 .site-header{
+	margin-bottom:35px;
+	position: relative;
+	width:100%;
 	#topHeader{
 	    background: $color__def_f2f;
 	    @include font-size(0.8125);
@@ -98,6 +101,9 @@
 	}
 	.site-info{
 		background: $color__def_002;
-		color: #fff;
+		color: $color__white;
+		a{
+			color: $color__def_ffa;
+		}
 	}
 }

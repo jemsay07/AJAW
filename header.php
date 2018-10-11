@@ -20,7 +20,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( 'ajaw' ); ?>>
 <div id="page" class="site container<?php echo ( get_theme_mod( 'ajaw_theme_wrap', 'full' ) === 'box'  ) ? '' : '-full'; ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ajaw' ); ?></a>
 	<header id="masthead" class="site-header">

@@ -59,7 +59,7 @@ if ( ! function_exists( 'ajaw_entry_footer' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'ajaw' ) );
+			$categories_list = get_the_category_list( esc_html__( ' ', 'ajaw' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
 				echo '<div class="ajaw-cat under">';
@@ -70,7 +70,7 @@ if ( ! function_exists( 'ajaw_entry_footer' ) ) :
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'ajaw' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'ajaw' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
 					echo '<div class="ajaw-tag under">';
@@ -132,13 +132,17 @@ if ( ! function_exists( 'ajaw_post_thumbnail' ) ) :
 		}
 
 		if ( is_singular() ) :
-			?>
+			if( has_post_thumbnail() ) : ?>
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+			<div class="post-thumbnail d-block">
+				<?php the_post_thumbnail( 'default', array( 'class' => 'img-responsive m-auto') ); ?>
 			</div><!-- .post-thumbnail -->
 
-		<?php else : ?>
+		<?php 
+			else :
+				echo get_first_image();
+			endif;  //has_post_thumbnail
+		else : ?>
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php

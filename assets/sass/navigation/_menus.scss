@@ -1,4 +1,4 @@
-.main-navigation {
+/* .main-navigation {
 	clear: both;
 	display: block;
 	float: left;
@@ -68,7 +68,7 @@
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
 	}
-}
+} */
 
 /* Small menu. */
 .menu-toggle,
@@ -99,6 +99,7 @@
 		font-weight: 600;
 		width: 50%;
 		&:before{
+			color: $color__def_ff4;
 			content: "\f053";
 			display: inline-block;
 			font-family: FontAwesome;
@@ -116,6 +117,7 @@
 		text-align: right;
 		width: 50%;
 		&:after{
+			color: $color__def_ff4;
 			content: "\f054";
 			display: inline-block;
 			font-family: FontAwesome;
