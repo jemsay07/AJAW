@@ -278,3 +278,25 @@
   padding: 10px 0;
   text-align: center;
 }
+/**Sidebar*/
+
+.sidebar{
+	.comments-title,
+	.comment-list,
+	.must-log-in,
+	.comment-reply-title,
+	.comment-navigation,
+	.comment-respond .comment-form {
+		max-width: 1040px;
+		padding-left: 60px;
+		padding-right: 376px;
+	}
+	.comment-list .comment-reply-title,
+	.comment-list .comment-respond .comment-form {
+		padding: 0;
+	}
+	.no-comments {
+		padding-left: 60px;
+		padding-right: 376px;
+	}
+}

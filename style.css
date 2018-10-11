@@ -1768,6 +1768,26 @@ a:hover, a:active {
   text-align: center;
 }
 
+/**Sidebar*/
+.sidebar .comments-title,
+.sidebar .comment-list,
+.sidebar .must-log-in,
+.sidebar .comment-reply-title,
+.sidebar .comment-navigation,
+.sidebar .comment-respond .comment-form {
+  max-width: 1040px;
+  padding-left: 60px;
+  padding-right: 376px;
+}
+.sidebar .comment-list .comment-reply-title,
+.sidebar .comment-list .comment-respond .comment-form {
+  padding: 0;
+}
+.sidebar .no-comments {
+  padding-left: 60px;
+  padding-right: 376px;
+}
+
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
