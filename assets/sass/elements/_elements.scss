@@ -12,6 +12,24 @@ body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 }
 
+blockquote {
+  quotes: "" "";
+  padding: 1.5em;
+  margin: 0 0 1em 0;
+  @include font-size(0.875);
+  background: $color__def_f2f;
+  border-left: 3px solid $color__def_ffa;
+}
+blockquote:before, blockquote:after {
+  content: "";
+}
+blockquote p {
+  margin: 0;
+}
+blockquote cite {
+  margin-top: 1em;
+}
+
 hr {
 	background-color: $color__background-hr;
 	border: 0;
