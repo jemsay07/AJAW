@@ -36,6 +36,12 @@
   padding: 0;
 	>li{
 		background-color: #f9f9f9;
+		cursor:pointer;
+		&:hover{
+			box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
+			position: relative;
+			z-index: 1;
+		}
 		&:after{
 			background-size: 4px 4px;
 			content: '';
@@ -44,7 +50,10 @@
 			width: 100%;
 		}
 		&:nth-of-type(2n){
-			background: $color__def_f2f;
+			background-color: $color__def_f2f;
+		}
+		&:last-child{
+			margin-bottom: 25px;
 		}
 	}
 }
@@ -175,20 +184,23 @@
 /* Comment form */
 .comment-respond{
 	background-color: $color__def_f2f;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
 	color: $color__57;
 	margin: 30px 0;
 	padding: 25px;
 	max-width: 747px;
 }
 .comment .comment-respond{
-	margin-bottom: 20px;
+	border-top: 1px solid $color__e6;
+	margin-bottom: 0px;
+	margin-top: 0;
 	padding: 20px;
 }
 .comment-reply-title{
   	margin-top: 0;
 	small{
 		a{
-			color:$color__ea;
+			color:$color__def_ffa;
 			display: inline-block;
 			float: right;
 			height: 20px;
@@ -230,6 +242,7 @@
 		[for="comment"]{
 			display: block;
 			float: none;
+			font-weight: 900;
 			width: 100%;	
 		}
 	}

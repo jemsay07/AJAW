@@ -3,23 +3,20 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
-	border-color: $color__border-button;
+	border-color: $color__def_ffa;
 	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, .8);
+	background: $color__def_ffa;
+	color: $color__white;
 	@include font-size(0.75);
 	line-height: 1;
-	padding: .6em 1em .4em;
+	padding: 1em;
     position: relative;
     text-transform: uppercase;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
-
-	&:active,
+	&:hover,&:active,
 	&:focus {
-		border-color: $color__border-button-focus;
+		background: $color__def_ff4;
+		border-color: $color__def_ff4;
 	}
 }
 input[type="search"]{
