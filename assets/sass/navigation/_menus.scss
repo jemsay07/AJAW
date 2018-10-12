@@ -70,6 +70,22 @@
 	}
 } */
 
+.ajaw {
+	#primary-menu{
+		ul{
+			ul{
+				ul{
+					left: 100%;
+	   				top: -1px;
+				}
+			}
+		}
+		.dropdown-menu{
+			padding:0;
+		}
+	}
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {

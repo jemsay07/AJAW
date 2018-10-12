@@ -52,6 +52,7 @@
 					'container_id'		=> 'primary-menu',
 					'container_class'	=> 'navbar-collapse collapse',
 					'menu_class'		=> 'navbar-nav container',
+					'depth'				=> 0,
 					'fallback_cb'		=> 'ajaw_wp_navwalker::fallback',
 					'walker'			=> new ajaw_wp_navwalker()
 				) );

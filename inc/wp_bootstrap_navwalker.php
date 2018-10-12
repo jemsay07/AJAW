@@ -80,10 +80,13 @@ class ajaw_wp_navwalker extends Walker_Nav_Menu {
 			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
 			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
 
+			//var_dump($args->has_children);
+
 			// If item has_children add atts to a.
 			if ( $args->has_children && $depth === 0 ) {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 				$atts['data-toggle']	= 'dropdown';
+				//$atts['data-hover']		= 'dropdown';
 				$atts['class']			= 'nav-link dropdown-toggle';
 				//$atts['aria-haspopup']	= 'true';
 			} else {
